@@ -1,5 +1,3 @@
-let modal = document.querySelector(".modal");
-let closeButton = document.querySelector(".close-button")
 let myLibrary = [];
 //constructor:
 function Book(title, author, pages, read) {
@@ -11,18 +9,18 @@ function Book(title, author, pages, read) {
     return `${this.title} by ${this.author}, ${this.pages} pages, ${read}`;
   };
 }
-
+let modal = document.querySelector(".modal");
 
 const newButton = document.querySelector(".new-btn");
 newButton.addEventListener("click", showModal);
 //function to show modal
 function showModal() {
   modal.style.display = "block";
-};
-
-closeButton.addEventListener("click", hideModal)
+}
+let closeButton = document.querySelector(".close-button");
+closeButton.addEventListener("click", hideModal);
 //function to hideModal
-function hideModal(){
+function hideModal() {
   modal.style.display = "none";
 }
 

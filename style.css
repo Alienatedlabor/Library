@@ -1,19 +1,19 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-.modal{
+.modal {
   /*will be toggled to block by JS*/
   display: none;
   /*keeps modal on top- greater takes priority:*/
-  z-index: 1; 
+  z-index: 1;
   position: fixed;
   width: 100%;
   height: 100%;
   /*enables scroll if necessary*/
-  overflow: auto; 
+  overflow: auto;
   align-items: center;
   justify-content: center;
   background-color: rgba(50, 50, 93, 0.5);
@@ -22,9 +22,8 @@
   right: 0;
   bottom: 0;
   padding: 25vh 25vw;
- 
 }
-.modal-form-box{
+.modal-form-box {
   display: flex;
   flex-direction: column;
   width: 30vw;
@@ -33,9 +32,10 @@
   background-color: white;
   border-radius: 8px;
   padding: 20vh 20vw;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
-.modal-form{
+.modal-form {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -43,7 +43,7 @@
   border-radius: 8px;
   gap: 5px;
 }
-.close-button{
+.close-button {
   border: none;
   background-color: unset;
   cursor: pointer;
