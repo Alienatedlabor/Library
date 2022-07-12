@@ -22,6 +22,7 @@
   right: 0;
   bottom: 0;
   padding: 25vh 25vw;
+  backdrop-filter: blur(2px);
 }
 .modal-form-box {
   display: flex;
