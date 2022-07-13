@@ -3,7 +3,9 @@
   padding: 0;
   box-sizing: border-box;
 }
-
+.container {
+  display: flex;
+}
 .modal {
   /*will be toggled to block by JS*/
   display: none;
@@ -48,4 +50,14 @@
   border: none;
   background-color: unset;
   cursor: pointer;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  padding: 100px 100px;
+  border-radius: 8px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  gap: 8px;
 }
