@@ -27,7 +27,7 @@ function resetForm() {
 }
 
 //listeners for submit button
-//first prevents button from attempting to submit form (avoiding page refresh)
+//first listener prevents button from attempting to submit form (avoiding page refresh)
 let submit = document.querySelector('.submit');
 submit.addEventListener('click', (e) => e.preventDefault());
 submit.addEventListener('click', addBookToLibrary);
@@ -59,6 +59,10 @@ function displayLibrary() {
     removeButton.textContent = 'Remove book from library';
     removeButton.classList.add('remove-button');
     card.append(removeButton);
+    const switchReadButton = document.createElement('button');
+    switchReadButton.classList.add('switch-button');
+    // switchButton(switchReadButton);
+    card.append(switchReadButton);
     let pairs = Object.entries(myLibrary[i]);
     for (let j = 0; j < pairs.length; j++) {
       let pairBox = document.createElement('div');
@@ -80,5 +84,17 @@ function resetLibrary() {
 }
 //TO DO:
 //add functionality to remove card button
-//change style on new book button
 //do something with read/unread and add read/unread button?
+
+//Book.read boolean behaving strangely, function doesn't work.
+// function switchButton(switchReadButton) {
+//   console.log(read);
+//   if ((read = false)) {
+//     switchReadButton.innerText = 'Mark Read';
+//switchReadButton.addEventListener                       where event listener changes read boolean to true on click
+//   }
+//   if ((read = true)) {
+//     switchReadButton.innerText = 'Mark Unread';
+//switchReadButton.addEventListener                       where event listener changes read boolean to false on click
+//   }
+// }
