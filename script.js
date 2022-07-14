@@ -31,6 +31,7 @@ function resetForm() {
 let submit = document.querySelector('.submit');
 submit.addEventListener('click', (e) => e.preventDefault());
 submit.addEventListener('click', addBookToLibrary);
+submit.addEventListener('click', resetLibrary);
 submit.addEventListener('click', displayLibrary);
 submit.addEventListener('click', resetForm);
 submit.addEventListener('click', hideModal);
@@ -46,14 +47,34 @@ function addBookToLibrary() {
   myLibrary.push(newBook);
   console.log(myLibrary);
 }
-container = document.querySelector('.container');
+container = document.querySelector('.library-container');
 function displayLibrary() {
   for (let i = 0; i < myLibrary.length; i++) {
     const card = document.createElement('div');
     card.classList.add('card');
     container.append(card);
-    card.append(myLibrary);
+    let pairs = Object.entries(myLibrary[i]);
+    for (let j = 0; j < pairs.length; j++) {
+      let pairBox = document.createElement('div');
+      pairBox.classList.add('pairbox');
+      card.append(pairBox);
+      pairBox.append(pairs[j]);
+      console.log(pairBox.innerText);
+      let formattedPairs = pairBox.innerText.replace(/([,])+/, ': ');
+      let newPairBox = document.createElement('div');
+      newPairBox.classList.add('pairbox');
+      card.append(newPairBox);
+      newPairBox.append(formattedPairs);
+      pairBox.remove();
+      console.log(formattedPairs);
+    }
   }
-  //Look back at grid to see how to reset cards in displayLibrary
-  //if i < 1 don't clear html elements
 }
+function resetLibrary() {
+  let cards = document.querySelectorAll('.card');
+  cards.forEach((card) => card.parentNode.removeChild(card));
+}
+// for(i= cards.length; i>=)
+// cards.splice()
+
+// reset library needs to still rerender all existing cards
