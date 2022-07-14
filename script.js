@@ -45,28 +45,32 @@ function addBookToLibrary() {
   } else read = false;
   let newBook = new Book(title, author, pages, read);
   myLibrary.push(newBook);
-  console.log(myLibrary);
 }
+
+//loops through objects, creates and appends card, loops through key value pairs on each object, creates text divs
+//replaces array commas with colons, removes old key value pair for new formatted pairs
 container = document.querySelector('.library-container');
 function displayLibrary() {
   for (let i = 0; i < myLibrary.length; i++) {
     const card = document.createElement('div');
     card.classList.add('card');
     container.append(card);
+    const removeButton = document.createElement('button');
+    removeButton.textContent = 'Remove book from library';
+    removeButton.classList.add('remove-button');
+    card.append(removeButton);
     let pairs = Object.entries(myLibrary[i]);
     for (let j = 0; j < pairs.length; j++) {
       let pairBox = document.createElement('div');
       pairBox.classList.add('pairbox');
       card.append(pairBox);
       pairBox.append(pairs[j]);
-      console.log(pairBox.innerText);
       let formattedPairs = pairBox.innerText.replace(/([,])+/, ': ');
       let newPairBox = document.createElement('div');
       newPairBox.classList.add('pairbox');
       card.append(newPairBox);
       newPairBox.append(formattedPairs);
       pairBox.remove();
-      console.log(formattedPairs);
     }
   }
 }
@@ -74,7 +78,7 @@ function resetLibrary() {
   let cards = document.querySelectorAll('.card');
   cards.forEach((card) => card.parentNode.removeChild(card));
 }
-// for(i= cards.length; i>=)
-// cards.splice()
-
-// reset library needs to still rerender all existing cards
+//TO DO:
+//add functionality to remove card button
+//change style on new book button
+//do something with read/unread and add read/unread button?
