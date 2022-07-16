@@ -6,6 +6,8 @@
   font-family: 'Lato', sans-serif;
 }
 body {
+  display: flex;
+  flex-direction: column;
   background-color: #f8f8ff;
 }
 h1 {
@@ -22,6 +24,7 @@ h1 {
   gap: 25px;
   flex-wrap: wrap;
   padding-bottom: 15px;
+  min-height: 70vh;
 }
 .modal {
   /*will be toggled to block by JS*/
@@ -105,7 +108,7 @@ h1 {
   transition: 0.5s;
 }
 .new-btn:hover {
-  transform: rotate(360deg);
+  transform: rotate(90deg);
 }
 .new-img {
   width: 44px;
@@ -131,16 +134,16 @@ h1 {
   box-shadow: none;
 }
 .remove-button:hover {
-  transform: rotate(720deg);
+  transform: rotate(180deg);
 }
 .read {
   box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
-    rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
+    rgba(63, 192, 58, 0.753) 0px 4px 6px -1px,
     rgba(63, 184, 8, 0.555) 0px 1px 0px inset;
 }
 .unread {
   box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
-    rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
+    rgba(214, 17, 17, 0.65) 0px 4px 6px -1px,
     rgba(214, 42, 42, 0.623) 0px 1px 0px inset;
 }
 .switch-button {
@@ -161,4 +164,25 @@ h1 {
 }
 .switch-button:active {
   bottom: 12px;
+}
+footer {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+}
+.footer-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  margin: 5px;
+  gap: 5px;
+}
+a {
+  text-decoration: none;
+  transition: 0.3s;
+  color: black;
+}
+a:hover {
+  text-decoration: underline;
 }

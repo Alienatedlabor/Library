@@ -104,5 +104,3 @@ function resetLibrary() {
   let cards = document.querySelectorAll('.card');
   cards.forEach((card) => card.parentNode.removeChild(card));
 }
-//TO DO:
-//do something with read/unread and add read/unread button?
