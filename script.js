@@ -51,50 +51,58 @@ function addBookToLibrary() {
 //replaces array commas with colons, removes old key value pair for new formatted pairs
 container = document.querySelector('.library-container');
 function displayLibrary() {
+  resetLibrary();
   for (let i = 0; i < myLibrary.length; i++) {
+    const book = myLibrary[i];
+    if (!book) {
+      return;
+    }
     const card = document.createElement('div');
     card.classList.add('card');
     container.append(card);
     const removeButton = document.createElement('button');
-    removeButton.textContent = 'Remove book from library';
+    removeButton.addEventListener('click', () => removeFromLibrary(i));
+    removeButton.textContent = 'X';
     removeButton.classList.add('remove-button');
     card.append(removeButton);
     const switchReadButton = document.createElement('button');
     switchReadButton.classList.add('switch-button');
-    // switchButton(switchReadButton);
+    switchReadButton.addEventListener('click', () => toggleRead(book));
+    switchReadButton.textContent = book.read ? 'read' : 'unread';
     card.append(switchReadButton);
-    let pairs = Object.entries(myLibrary[i]);
-    for (let j = 0; j < pairs.length; j++) {
+    let pairs = Object.entries(book);
+    for (let j = 0; j < pairs.length - 1; j++) {
       let pairBox = document.createElement('div');
       pairBox.classList.add('pairbox');
       card.append(pairBox);
       pairBox.append(pairs[j]);
-      let formattedPairs = pairBox.innerText.replace(/([,])+/, ': ');
+      let formattedPairs = pairBox.innerText.replaceAll(',', ': ');
       let newPairBox = document.createElement('div');
       newPairBox.classList.add('pairbox');
       card.append(newPairBox);
       newPairBox.append(formattedPairs);
       pairBox.remove();
     }
+    if (book.read === true) {
+      card.classList.add('read');
+    } else {
+      card.classList.add('unread');
+    }
   }
+}
+function toggleRead(book) {
+  book.read = !book.read;
+  displayLibrary();
+}
+function removeFromLibrary(i) {
+  console.log(i);
+  myLibrary.splice(i, 1);
+  console.log(myLibrary);
+  displayLibrary();
 }
 function resetLibrary() {
   let cards = document.querySelectorAll('.card');
   cards.forEach((card) => card.parentNode.removeChild(card));
 }
 //TO DO:
-//add functionality to remove card button
 //do something with read/unread and add read/unread button?
-
-//Book.read boolean behaving strangely, function doesn't work.
-// function switchButton(switchReadButton) {
-//   console.log(read);
-//   if ((read = false)) {
-//     switchReadButton.innerText = 'Mark Read';
-//switchReadButton.addEventListener                       where event listener changes read boolean to true on click
-//   }
-//   if ((read = true)) {
-//     switchReadButton.innerText = 'Mark Unread';
-//switchReadButton.addEventListener                       where event listener changes read boolean to false on click
-//   }
-// }

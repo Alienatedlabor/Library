@@ -16,10 +16,12 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100vw;
+  max-width: 100vw;
   margin: 0 auto;
   margin-top: 50px;
   gap: 25px;
+  flex-wrap: wrap;
+  padding-bottom: 15px;
 }
 .modal {
   /*will be toggled to block by JS*/
@@ -67,14 +69,18 @@ h1 {
   cursor: pointer;
 }
 .card {
+  position: relative;
   display: flex;
   flex-direction: column;
   width: 200px;
   height: 400px;
   padding: 50px 120px;
   border-radius: 8px;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
-    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  /*box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;*/
+  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
+    rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
+    rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
   gap: 8px;
   justify-content: center;
   align-items: center;
@@ -96,6 +102,10 @@ h1 {
   border: none;
   background-color: unset;
   cursor: pointer;
+  transition: 0.5s;
+}
+.new-btn:hover {
+  transform: rotate(360deg);
 }
 .new-img {
   width: 44px;
@@ -103,19 +113,52 @@ h1 {
   transition: 0.2s;
 }
 .remove-button {
+  top: 10px;
+  left: 10px;
+  position: absolute;
   display: flex;
   border: none;
   background-color: white;
-  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
-  border-radius: 4px;
-  padding: 10px 16px;
-  width: 150px;
   font-size: small;
   white-space: nowrap;
   justify-content: center;
   align-items: center;
   transition: 0.3s;
+  cursor: pointer;
+  font-weight: bold;
 }
 .remove-button:active {
   box-shadow: none;
+}
+.remove-button:hover {
+  transform: rotate(720deg);
+}
+.read {
+  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
+    rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
+    rgba(63, 184, 8, 0.555) 0px 1px 0px inset;
+}
+.unread {
+  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
+    rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
+    rgba(214, 42, 42, 0.623) 0px 1px 0px inset;
+}
+.switch-button {
+  position: absolute;
+  bottom: 10px;
+  width: 95%;
+  border: none;
+  background-color: black;
+  color: white;
+  padding: 10px 0;
+  border-radius: 50px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+.switch-button:hover {
+  bottom: 15px;
+}
+.switch-button:active {
+  bottom: 12px;
 }
